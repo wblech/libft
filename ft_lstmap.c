@@ -6,7 +6,7 @@
 /*   By: wbertoni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 18:19:20 by wbertoni          #+#    #+#             */
-/*   Updated: 2020/01/30 18:35:06 by wbertoni         ###   ########.fr       */
+/*   Updated: 2020/02/05 14:19:39 by wbertoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@ static	int		lstsize(t_list *lst)
 	int count;
 
 	count = 0;
-	if (lst == NULL)
-		return (0);
-	while (lst->next != NULL)
+	while (lst != NULL)
 	{
 		lst = lst->next;
 		count++;
 	}
-	return (++count);
+	return (count);
 }
 
 static	t_list	*lstnew(void *content)
@@ -56,19 +54,14 @@ static	void	lstadd_back(t_list **lst, t_list *new)
 
 static	void	lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*cpy;
+	t_list	*x;
 
-	cpy = (*lst);
-	if ((*lst) != NULL)
+	while (*lst)
 	{
-		while ((*lst) != NULL)
-		{
-			(*lst) = cpy->next;
-			del(cpy->content);
-			free(cpy);
-			cpy = (*lst);
-		}
-		lst = NULL;
+		x = (*lst)->next;
+		(*del)((*lst)->content);
+		free(*lst);
+		*lst = x;
 	}
 	lst = NULL;
 }
@@ -94,6 +87,7 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			lstclear(&begin, del);
 			return (NULL);
 		}
+		lst = lst->next;
 	}
 	return (begin);
 }

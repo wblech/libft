@@ -6,7 +6,7 @@
 /*   By: wbertoni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 20:35:54 by wbertoni          #+#    #+#             */
-/*   Updated: 2020/01/27 21:02:59 by wbertoni         ###   ########.fr       */
+/*   Updated: 2020/02/04 13:50:17 by wbertoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_newstr(int len)
 {
 	char *str;
 
-	str =(char *)ft_calloc(len + 1, sizeof(char));
+	str = (char *)ft_calloc(len + 1, sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	return (str);

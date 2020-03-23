@@ -6,7 +6,7 @@
 /*   By: wbertoni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 12:23:03 by wbertoni          #+#    #+#             */
-/*   Updated: 2020/01/29 12:58:56 by wbertoni         ###   ########.fr       */
+/*   Updated: 2020/02/04 14:40:41 by wbertoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ int	ft_lstsize(t_list *lst)
 	int count;
 
 	count = 0;
-	if (lst == NULL)
-		return (0);
-	while (lst->next != NULL)
+	while (lst != NULL)
 	{
 		lst = lst->next;
 		count++;
 	}
-	return (++count);
+	return (count);
 }

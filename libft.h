@@ -6,12 +6,13 @@
 /*   By: wbertoni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 17:21:21 by wbertoni          #+#    #+#             */
-/*   Updated: 2020/01/30 10:20:30 by wbertoni         ###   ########.fr       */
+/*   Updated: 2020/02/04 19:05:36 by wbertoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
 

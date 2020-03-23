@@ -6,7 +6,7 @@
 /*   By: wbertoni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 11:44:13 by wbertoni          #+#    #+#             */
-/*   Updated: 2020/01/30 15:16:10 by wbertoni         ###   ########.fr       */
+/*   Updated: 2020/02/07 13:44:31 by wbertoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	ft_atoi(const char *str)
 		nbr *= 10;
 		nbr += str[index++] - '0';
 	}
-	if (nbr > 2147483647 && sign == 1)
+	if (nbr > (unsigned long long int)LONG_MAX && sign == 1)
 		return (-1);
-	if (nbr > 2147483648 && sign == -1)
+	if (nbr > (unsigned long long int)(-LONG_MIN) && sign == -1)
 		return (0);
 	return ((int)(nbr * sign));
 }
